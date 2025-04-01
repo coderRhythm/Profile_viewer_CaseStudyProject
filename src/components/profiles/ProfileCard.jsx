@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useProfiles } from '../../context/ProfileContext';
 import React from 'react';
 
-// Custom styles for the ProfileCard
 const styles = {
   card: {
     border: 'none',
@@ -165,12 +164,10 @@ function ProfileCard({ profile }) {
   const { setSelectedProfile, loading } = useProfiles();
   const [isHovered, setIsHovered] = React.useState(false);
   
-  // Add animation styles for the loading indicator
   if (typeof window !== 'undefined') {
     addPulseAnimation();
   }
 
-  // Function to get a random tech leader image based on gender
   const getRandomTechImage = (gender) => {
     const maleImages = [
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=300&fit=crop',

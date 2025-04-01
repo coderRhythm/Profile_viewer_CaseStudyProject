@@ -3,7 +3,6 @@ import { Link, Outlet } from 'react-router-dom';
 import MapComponent from './map/MapComponent';
 import { useProfiles } from '../context/ProfileContext';
 
-// Custom styles
 const styles = {
   container: {
     maxWidth: '1200px',
@@ -149,18 +148,15 @@ function Layout() {
         </div>
       </div>
       
-      {/* Custom Map Drawer */}
       {selectedProfile && (
         <>
-          {/* Overlay */}
           <div 
             style={styles.overlay} 
             onClick={() => setSelectedProfile(null)}
           />
           
-          {/* Drawer */}
           <div style={styles.drawer}>
-            {/* Drawer Header */}
+            
             <div style={styles.drawerHeader}>
               <div style={styles.flexBetween}>
                 <h3 style={styles.drawerTitle}>{selectedProfile.name}'s Location</h3>
@@ -173,7 +169,6 @@ function Layout() {
               </div>
             </div>
             
-            {/* Drawer Body */}
             <div>
               <div style={styles.mapContainer}>
                 <MapComponent location={selectedProfile.location} height="100%" />

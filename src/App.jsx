@@ -6,7 +6,6 @@ import ProfileDetailPage from './pages/ProfileDetailPage';
 import AdminPage from './pages/AdminPage';
 import './App.css';
 
-// Create the router with our routes
 const router = createBrowserRouter([
   {
     path: '/',

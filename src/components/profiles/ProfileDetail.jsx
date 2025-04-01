@@ -3,7 +3,6 @@ import { useProfiles } from '../../context/ProfileContext';
 import MapComponent from '../map/MapComponent';
 import React from 'react';
 
-// Custom styles
 const styles = {
   container: {
     padding: '20px',
@@ -196,15 +195,12 @@ function ProfileDetail() {
   const navigate = useNavigate();
   const { profiles, deleteProfile, loading } = useProfiles();
   
-  // Add animation styles
   if (typeof window !== 'undefined') {
     addSpinAnimation();
   }
   
-  // Find the profile based on the URL parameter
   const profile = profiles.find(p => p.id === id);
   
-  // Display loading spinner while fetching data
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '300px' }}>
@@ -213,7 +209,6 @@ function ProfileDetail() {
     );
   }
   
-  // Handle profile not found
   if (!profile) {
     return (
       <div className="container text-center py-5">
@@ -228,7 +223,6 @@ function ProfileDetail() {
     );
   }
 
-  // Handle profile deletion
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete this profile?')) {
       deleteProfile(profile.id);

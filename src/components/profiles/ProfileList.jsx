@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useProfiles } from '../../context/ProfileContext';
 import ProfileCard from './ProfileCard';
 
-// Custom styles
 const styles = {
   container: {
     margin: '0 0 24px 0'
@@ -71,7 +70,6 @@ const styles = {
   }
 };
 
-// Add the spin animation to the head
 const addSpinnerAnimation = () => {
   if (typeof document !== 'undefined') {
     const styleSheet = document.createElement('style');
@@ -92,7 +90,6 @@ function ProfileList() {
   const [filterBy, setFilterBy] = useState('name');
   const [isDesktop, setIsDesktop] = useState(false);
 
-  // Add spinner animation to document
   if (typeof window !== 'undefined') {
     addSpinnerAnimation();
   }
@@ -103,20 +100,16 @@ function ProfileList() {
       setIsDesktop(window.matchMedia('(min-width: 768px)').matches);
     };
 
-    // Initial check
     checkMediaQuery();
 
-    // Add listener for window resizing
     const mediaQueryList = window.matchMedia('(min-width: 768px)');
     mediaQueryList.addEventListener('change', checkMediaQuery);
 
-    // Cleanup
     return () => {
       mediaQueryList.removeEventListener('change', checkMediaQuery);
     };
   }, []);
 
-  // Filter profiles based on search term and filter criteria
   const filteredProfiles = profiles.filter((profile) => {
     const searchLower = searchTerm.toLowerCase();
     

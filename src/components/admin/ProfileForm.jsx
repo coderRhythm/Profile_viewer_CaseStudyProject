@@ -4,7 +4,6 @@ import { useProfiles } from '../../context/ProfileContext';
 import MapComponent from '../map/MapComponent';
 import React from 'react';
 
-// Add the media queries and animations
 const addStyleSheet = () => {
   if (typeof document !== 'undefined') {
     const styleElement = document.createElement('style');
@@ -329,7 +328,6 @@ const addStyleSheet = () => {
   }
 };
 
-// Initial form state
 const initialFormState = {
   name: '',
   image: '',
@@ -353,12 +351,10 @@ function ProfileForm() {
   const [interestInput, setInterestInput] = useState('');
   const navigate = useNavigate();
   
-  // Add the stylesheet for animations and media queries
   useEffect(() => {
     addStyleSheet();
   }, []);
   
-  // If editing an existing profile, load its data
   useEffect(() => {
     if (id) {
       const profileToEdit = profiles.find(p => p.id === id);
@@ -400,11 +396,9 @@ function ProfileForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     
-    // Handle nested details object
     if (name === 'email' || name === 'phone') {
       setFormData(prev => ({
         ...prev,
@@ -418,13 +412,11 @@ function ProfileForm() {
     }
   };
 
-  // Handle number input changes
   const handleNumberChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: parseFloat(value) || 0 }));
   };
 
-  // Add an interest to the list
   const addInterest = () => {
     if (interestInput.trim()) {
       setFormData(prev => ({
@@ -438,7 +430,6 @@ function ProfileForm() {
     }
   };
 
-  // Remove an interest from the list
   const removeInterest = (index) => {
     setFormData(prev => ({
       ...prev,
@@ -449,7 +440,6 @@ function ProfileForm() {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -469,7 +459,6 @@ function ProfileForm() {
     }
   };
 
-  // Custom form control component
   const FormControl = ({ label, error, required, children }) => (
     <div className="form-control">
       {label && (
